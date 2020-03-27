@@ -12,7 +12,7 @@
 /obj/creature
 	name = "creature"
 	desc = "A sanity-destroying otherthing."
-	icon = 'otherthing.dmi'
+	icon = 'icons/obj/otherthing.dmi'
 	icon_state = "otherthing"
 	layer = 5.0
 	density = 1

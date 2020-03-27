@@ -1,12 +1,12 @@
 /obj/machinery/computer
 	name = "computer"
-	icon = 'computer.dmi'
+	icon = 'icons/obj/computer.dmi'
 	density = 1
 	anchored = 1.0
 /*
 /obj/machinery/computer/airtunnel
 	name = "Air Tunnel Control"
-	icon = 'airtunnelcomputer.dmi'
+	icon = 'icons/obj/clothing/airtunnelcomputer.dmi'
 	icon_state = "console00"
 */
 
@@ -14,7 +14,7 @@
 	name = "Operating Computer"
 	density = 1
 	anchored = 1.0
-	icon = 'computer.dmi'
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "comm"
 
 	var/mob/living/carbon/human/victim = null
@@ -28,7 +28,7 @@
 
 /obj/machinery/computer/arcade
 	name = "arcade machine"
-	icon = 'computer.dmi'
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "arcade"
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners Don't Use Spacedrugs" //Temporary message, for attack messages, etc
@@ -129,7 +129,7 @@
 
 /obj/machinery/computer/hologram_comp
 	name = "Hologram Computer"
-	icon = 'stationobjs.dmi'
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "holo_console0"
 	var/obj/machinery/hologram_proj/projector = null
 	var/temp = null
@@ -193,7 +193,7 @@
 	var/can_change_id = 0
 
 /obj/machinery/computer/secure_data/detective_computer
-	icon = 'computer.dmi'
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "messyfiles"
 
 /obj/machinery/computer/security
@@ -211,7 +211,7 @@
 
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
-	icon = 'stationobjs.dmi'
+	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "telescreen"
 	network = "thunder"
 	density = 0

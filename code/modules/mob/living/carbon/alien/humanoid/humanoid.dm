@@ -59,8 +59,8 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		reagents = R
 		R.my_atom = src
 		if(!istype(src, /mob/living/carbon/alien/humanoid/queen))
-			src.stand_icon = new /icon('alien.dmi', "alien_s")
-			src.lying_icon = new /icon('alien.dmi', "alien_l")
+			src.stand_icon = new /icon('icons/mob/alien.dmi', "alien_s")
+			src.lying_icon = new /icon('icons/mob/alien.dmi', "alien_l")
 		src.icon = src.stand_icon
 
 		if(src.name == "alien") src.name = text("alien ([rand(1, 1000)])")
@@ -449,7 +449,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 	if (src.zone_sel)
 		src.zone_sel.overlays = null
 		src.zone_sel.overlays += src.body_standing
-		src.zone_sel.overlays += image("icon" = 'zone_sel.dmi', "icon_state" = text("[]", src.zone_sel.selecting))
+		src.zone_sel.overlays += image("icon" = 'icons/mob/zone_sel.dmi', "icon_state" = text("[]", src.zone_sel.selecting))
 
 	if (src.lying)
 		src.icon = src.lying_icon
@@ -501,12 +501,12 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		var/t1 = src.wear_suit.item_state
 		if (!t1)
 			t1 = src.wear_suit.icon_state
-		src.overlays += image("icon" = 'mob.dmi', "icon_state" = text("[][]", t1, (!( src.lying ) ? null : "2")), "layer" = MOB_LAYER)
+		src.overlays += image("icon" = 'icons/mob/mob.dmi', "icon_state" = text("[][]", t1, (!( src.lying ) ? null : "2")), "layer" = MOB_LAYER)
 		if (src.wear_suit.blood_DNA)
 			if (istype(src.wear_suit, /obj/item/clothing/suit/armor))
-				src.overlays += image("icon" = 'blood.dmi', "icon_state" = "armorblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
+				src.overlays += image("icon" = 'icons/effects/blood.dmi', "icon_state" = "armorblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
 			else
-				src.overlays += image("icon" = 'blood.dmi', "icon_state" = "suitblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
+				src.overlays += image("icon" = 'icons/effects/blood.dmi', "icon_state" = "suitblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
 		src.wear_suit.screen_loc = ui_iclothing
 		if (istype(src.wear_suit, /obj/item/clothing/suit/straight_jacket))
 			if (src.handcuffed)
@@ -526,9 +526,9 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		var/t1 = src.head.item_state
 		if (!t1)
 			t1 = src.head.icon_state
-		src.overlays += image("icon" = 'mob.dmi', "icon_state" = text("[][]", t1, (!( src.lying ) ? null : "2")), "layer" = MOB_LAYER)
+		src.overlays += image("icon" = 'icons/mob/mob.dmi', "icon_state" = text("[][]", t1, (!( src.lying ) ? null : "2")), "layer" = MOB_LAYER)
 		if (src.head.blood_DNA)
-			src.overlays += image("icon" = 'blood.dmi', "icon_state" = "helmetblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
+			src.overlays += image("icon" = 'icons/effects/blood.dmi', "icon_state" = "helmetblood[!src.lying ? "" : "2"]", "layer" = MOB_LAYER)
 		src.head.screen_loc = ui_oclothing
 
 	if (src.l_store)
@@ -542,12 +542,12 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		src.client.screen += src.contents
 
 	if (src.r_hand)
-		src.overlays += image("icon" = 'items_righthand.dmi', "icon_state" = src.r_hand.item_state ? src.r_hand.item_state : src.r_hand.icon_state, "layer" = MOB_LAYER+1)
+		src.overlays += image("icon" = 'icons/mob/items_righthand.dmi', "icon_state" = src.r_hand.item_state ? src.r_hand.item_state : src.r_hand.icon_state, "layer" = MOB_LAYER+1)
 
 		src.r_hand.screen_loc = ui_id
 
 	if (src.l_hand)
-		src.overlays += image("icon" = 'items_lefthand.dmi', "icon_state" = src.l_hand.item_state ? src.l_hand.item_state : src.l_hand.icon_state, "layer" = MOB_LAYER+1)
+		src.overlays += image("icon" = 'icons/mob/items_lefthand.dmi', "icon_state" = src.l_hand.item_state ? src.l_hand.item_state : src.l_hand.icon_state, "layer" = MOB_LAYER+1)
 
 		src.l_hand.screen_loc = ui_belt
 
@@ -570,7 +570,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		src.invisibility = 0
 
 	if (shielded || src.alien_invis)
-		src.overlays += image("icon" = 'mob.dmi', "icon_state" = "shield", "layer" = MOB_LAYER)
+		src.overlays += image("icon" = 'icons/mob/mob.dmi', "icon_state" = "shield", "layer" = MOB_LAYER)
 
 	for (var/mob/M in viewers(1, src))
 		if ((M.client && M.machine == src))
@@ -650,7 +650,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 			if (src.paralysis >= 3) src.paralysis -= 3
 			if (src.stunned >= 3) src.stunned -= 3
 			if (src.weakened >= 3) src.weakened -= 3
-			playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\blue [] shakes [] trying to wake [] up!", M, src, src), 1)
 		else
@@ -682,7 +682,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 			G.affecting = src
 			src.grabbed_by += G
 			G.synch()
-			playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\red [] has grabbed [] passively!", M, src), 1)
 		else
@@ -696,7 +696,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 							step_away(src,M,15)
 							sleep(3)
 							step_away(src,M,15)
-					playsound(src.loc, "punch", 25, 1, -1)
+					playsound(src.loc, "sound/weapons/punch", 25, 1, -1)
 					for(var/mob/O in viewers(src, null))
 						O.show_message(text("\red <B>[] has punched []!</B>", M, src), 1)
 					if (damage > 4.9)
@@ -709,7 +709,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 
 					src.updatehealth()
 				else
-					playsound(src.loc, 'punchmiss.ogg', 25, 1, -1)
+					playsound(src.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 					for(var/mob/O in viewers(src, null))
 						O.show_message(text("\red <B>[] has attempted to punch []!</B>", M, src), 1)
 					return
@@ -718,17 +718,17 @@ to clean it up, or just beat the shit out of it (which takes ages).
 					var/randn = rand(1, 100)
 					if (randn <= 25)
 						src.weakened = 2
-						playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+						playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 						for(var/mob/O in viewers(src, null))
 							O.show_message(text("\red <B>[] has pushed down []!</B>", M, src), 1)
 					else
 						if (randn <= 60)
 							src.drop_item()
-							playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+							playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 							for(var/mob/O in viewers(src, null))
 								O.show_message(text("\red <B>[] has disarmed []!</B>", M, src), 1)
 						else
-							playsound(src.loc, 'punchmiss.ogg', 25, 1, -1)
+							playsound(src.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 							for(var/mob/O in viewers(src, null))
 								O.show_message(text("\red <B>[] has attempted to disarm []!</B>", M, src), 1)
 	return

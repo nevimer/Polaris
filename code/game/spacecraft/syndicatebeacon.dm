@@ -7,7 +7,7 @@
 /obj/machinery/syndicate_beacon
 	name = "ominous beacon"
 	desc = "This looks suspicious..."
-	icon = 'device.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "syndbeacon"
 
 	anchored = 1

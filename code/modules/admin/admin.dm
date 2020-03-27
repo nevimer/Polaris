@@ -1006,7 +1006,7 @@ var/showadminmessages = 1
 								var/obj/portal/P = new /obj/portal( T )
 								P.target = picked
 								P.creator = null
-								P.icon = 'objects.dmi'
+								P.icon = 'icons/obj/objects.dmi'
 								P.failchance = 0
 								P.icon_state = "anom"
 								P.name = "wormhole"
@@ -1045,7 +1045,7 @@ var/showadminmessages = 1
 						for(var/obj/item/W in world)
 							if(istype(W, /obj/item/clothing) || istype(W, /obj/item/weapon/card/id) || istype(W, /obj/item/weapon/disk) || istype(W, /obj/item/weapon/tank))
 								continue
-							W.icon = 'gun.dmi'
+							W.icon = 'icons/obj/gun.dmi'
 							W.icon_state = "revolver"
 							W.item_state = "gun"
 						message_admins("[key_name_admin(usr)] made every item look like a gun")

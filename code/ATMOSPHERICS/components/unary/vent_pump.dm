@@ -1,5 +1,5 @@
 /obj/machinery/atmospherics/unary/vent_pump
-	icon = 'vent_pump.dmi'
+	icon = 'icons/obj/atmospherics/vent_pump.dmi'
 	icon_state = "off"
 
 	name = "Air Vent"
@@ -198,11 +198,11 @@
 
 			if(!welded)
 				user.visible_message("[user] welds the vent shut.", "You weld the vent shut.")
-				playsound(src.loc, 'Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				welded = 1
 			else
 				user.visible_message("[user] unwelds the vent.", "You unweld the vent.")
-				playsound(src.loc, 'Welder2.ogg', 50, 1)
+				playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 				welded = 0
 
 	examine()

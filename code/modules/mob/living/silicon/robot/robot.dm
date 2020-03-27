@@ -447,7 +447,7 @@
 		G.affecting = src
 		src.grabbed_by += G
 		G.synch()
-		playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+		playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 		for(var/mob/O in viewers(src, null))
 			O.show_message(text("\red [] has grabbed [] passively!", M, src), 1)
 
@@ -462,7 +462,7 @@
 					src.stunned = max(src.stunned,4)
 			*/
 
-			playsound(src.loc, "punch", 25, 1, -1)
+			playsound(src.loc, "sound/weapons/punch.ogg", 25, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\red <B>[] has slashed at []!</B>", M, src), 1)
 			if(prob(8))
@@ -470,7 +470,7 @@
 			src.bruteloss += damage
 			src.updatehealth()
 		else
-			playsound(src.loc, 'punchmiss.ogg', 25, 1, -1)
+			playsound(src.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\red <B>[] took a swipe at []!</B>", M, src), 1)
 			return
@@ -482,11 +482,11 @@
 				src.stunned = 5
 				step(src,get_dir(M,src))
 				spawn(5) step(src,get_dir(M,src))
-				playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+				playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 				for(var/mob/O in viewers(src, null))
 					O.show_message(text("\red <B>[] has pushed back []!</B>", M, src), 1)
 			else
-				playsound(src.loc, 'punchmiss.ogg', 25, 1, -1)
+				playsound(src.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 				for(var/mob/O in viewers(src, null))
 					O.show_message(text("\red <B>[] attempted to push back []!</B>", M, src), 1)
 	return
@@ -556,12 +556,12 @@
 
 	if(src.lower_mod == 1)
 //		src.overlays += "lower_t"
-		src.overlays += image("icon" = 'robots.dmi', "icon_state" = "lower_t", "layer" = -3)
+		src.overlays += image("icon" = 'icons/mob/robots.dmi', "icon_state" = "lower_t", "layer" = -3)
 
 	if(wiresexposed && opened)
 		if(src.stat == 0)
 //			src.overlays += "ov-openpannel +w"
-			src.overlays += image("icon" = 'robots.dmi', "icon_state" = "ov-openpanel +w", "layer" = -2)
+			src.overlays += image("icon" = 'icons/mob/robots.dmi', "icon_state" = "ov-openpanel +w", "layer" = -2)
 
 			return
 
@@ -569,10 +569,10 @@
 		if(src.stat == 0)
 			if(src.cell)
 //				src.overlays += "ov-openpannel +c",
-				src.overlays += image("icon" = 'robots.dmi', "icon_state" = "ov-openpanel +c", "layer" = -2)
+				src.overlays += image("icon" = 'icons/mob/robots.dmi', "icon_state" = "ov-openpanel +c", "layer" = -2)
 			else
 //				src.overlays += "ov-openpannel -c"
-				src.overlays += image("icon" = 'robots.dmi', "icon_state" = "ov-openpanel -c", "layer" = -2)
+				src.overlays += image("icon" = 'icons/mob/robots.dmi', "icon_state" = "ov-openpanel -c", "layer" = -2)
 
 			return
 

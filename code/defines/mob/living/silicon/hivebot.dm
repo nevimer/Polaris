@@ -1,7 +1,7 @@
 /mob/living/silicon/hivebot
 	name = "Robot"
 	voice_name = "synthesized voice"
-	icon = 'hivebot.dmi'
+	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "basic"
 	health = 80
 	var/health_max = 80
@@ -34,7 +34,7 @@
 /mob/living/silicon/hive_mainframe
 	name = "Robot Mainframe"
 	voice_name = "synthesized voice"
-	icon = 'hivebot.dmi'
+	icon = 'icons/mob/hivebot.dmi'
 	icon_state = "hive_main"
 	health = 200
 	var/health_max = 200

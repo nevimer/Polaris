@@ -4,8 +4,8 @@
 		var/datum/reagents/R = new/datum/reagents(100)
 		reagents = R
 		R.my_atom = src
-		src.stand_icon = new /icon('alien.dmi', "queen_s")
-		src.lying_icon = new /icon('alien.dmi', "queen_l")
+		src.stand_icon = new /icon('icons/mob/alien.dmi', "queen_s")
+		src.lying_icon = new /icon('icons/mob/alien.dmi', "queen_l")
 		src.icon = src.stand_icon
 
 //there should only be one queen

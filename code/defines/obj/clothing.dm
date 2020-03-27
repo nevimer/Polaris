@@ -32,7 +32,7 @@
 
 /obj/item/clothing/glasses
 	name = "glasses"
-	icon = 'glasses.dmi'
+	icon = 'icons/obj/clothing/glasses.dmi'
 	w_class = 2.0
 	flags = GLASSESCOVERSEYES
 
@@ -69,7 +69,7 @@
 /obj/item/clothing/gloves
 	name = "gloves"
 	w_class = 2.0
-	icon = 'gloves.dmi'
+	icon = 'icons/obj/clothing/gloves.dmi'
 	protective_temperature = 400
 	heat_transfer_coefficient = 0.25
 	siemens_coefficient = 0.50
@@ -136,7 +136,7 @@
 
 /obj/item/clothing/head
 	name = "head"
-	icon = 'hats.dmi'
+	icon = 'icons/obj/clothing/hats.dmi'
 	body_parts_covered = HEAD
 
 /obj/item/clothing/head/bio_hood
@@ -259,7 +259,7 @@
 
 /obj/item/clothing/mask
 	name = "mask"
-	icon = 'masks.dmi'
+	icon = 'icons/obj/clothing/masks.dmi'
 	var/vchange = 0
 	body_parts_covered = HEAD
 
@@ -353,7 +353,7 @@
 
 /obj/item/clothing/shoes
 	name = "shoes"
-	icon = 'shoes.dmi'
+	icon = 'icons/obj/clothing/shoes.dmi'
 	var/chained = 0
 
 	body_parts_covered = FEET
@@ -411,7 +411,7 @@
 // SUITS
 
 /obj/item/clothing/suit
-	icon = 'suits.dmi'
+	icon = 'icons/obj/clothing/suits.dmi'
 	name = "suit"
 	var/fire_resist = T0C+100
 	flags = FPRINT | TABLEPASS
@@ -581,7 +581,7 @@
 // UNDERS AND BY THAT, NATURALLY I MEAN UNIFORMS/JUMPSUITS
 
 /obj/item/clothing/under
-	icon = 'uniforms.dmi'
+	icon = 'icons/obj/clothing/uniforms.dmi'
 	name = "under"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 	protective_temperature = T0C + 50

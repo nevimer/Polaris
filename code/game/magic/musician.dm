@@ -6,7 +6,7 @@ datum/song
 
 /obj/device/piano
 	name = "space piano"
-	icon = 'musician.dmi'
+	icon = 'icons/obj/musician.dmi'
 	icon_state = "piano"
 	anchored = 1
 	density = 1
@@ -19,19 +19,19 @@ datum/song
 		var/soundfile
 		switch(note)
 			if("A")
-				soundfile = 'pianoA.ogg'
+				soundfile = 'sound/piano/pianoA.ogg'
 			if("B")
-				soundfile = 'pianoB.ogg'
+				soundfile = 'sound/piano/pianoB.ogg'
 			if("C")
-				soundfile = 'pianoC.ogg'
+				soundfile = 'sound/piano/pianoC.ogg'
 			if("D")
-				soundfile = 'pianoD.ogg'
+				soundfile = 'sound/piano/pianoD.ogg'
 			if("E")
-				soundfile = 'pianoE.ogg'
+				soundfile = 'sound/piano/pianoE.ogg'
 			if("F")
-				soundfile = 'pianoF.ogg'
+				soundfile = 'sound/piano/pianoF.ogg'
 			if("G")
-				soundfile = 'pianoG.ogg'
+				soundfile = 'sound/piano/pianoG.ogg'
 			else
 				return
 

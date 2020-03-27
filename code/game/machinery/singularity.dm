@@ -9,7 +9,7 @@ However people seem to like it for some reason.
 /obj/machinery/the_singularitygen/
 	name = "Gravitational Singularity Generator"
 	desc = "An Odd Device which produces a Gravitational Singularity when set up."
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "TheSingGen"
 	anchored = 1
 	density = 1
@@ -33,13 +33,13 @@ However people seem to like it for some reason.
 	if(istype(W, /obj/item/weapon/wrench))
 		if(!anchored)
 			anchored = 1
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You secure the [src.name] to the floor."
 			src.anchored = 1
 			return
 		else if(anchored)
 			anchored = 0
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You unsecure the [src.name]."
 			src.anchored = 0
 			return
@@ -49,7 +49,7 @@ However people seem to like it for some reason.
 /obj/machinery/the_singularity/
 	name = "Gravitational Singularity"
 	desc = "A Gravitational Singularity."
-	icon = '160x160.dmi'
+	icon = 'icons/effects/160x160.dmi'
 	icon_state = "Singularity"
 	anchored = 1
 	density = 1
@@ -261,7 +261,7 @@ However people seem to like it for some reason.
 	var/turf/myturf = get_turf(src)
 
 	var/obj/overlay/pulse = new/obj/overlay ( myturf )
-	pulse.icon = 'effects.dmi'
+	pulse.icon = 'icons/effects/effects.dmi'
 	pulse.icon_state = "emppulse"
 	pulse.name = "emp pulse"
 	pulse.anchored = 1
@@ -350,7 +350,7 @@ However people seem to like it for some reason.
 		A.use_power(7500)
 
 		var/obj/overlay/pulse2 = new/obj/overlay ( A.loc )
-		pulse2.icon = 'effects.dmi'
+		pulse2.icon = 'icons/effects/effects.dmi'
 		pulse2.icon_state = "empdisable"
 		pulse2.name = "emp sparks"
 		pulse2.anchored = 1
@@ -400,7 +400,7 @@ However people seem to like it for some reason.
 /obj/machinery/containment_field
 	name = "Containment Field"
 	desc = "An energy field."
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "Contain_F"
 	anchored = 1
 	density = 0
@@ -497,7 +497,7 @@ However people seem to like it for some reason.
 /obj/machinery/emitter
 	name = "Emitter"
 	desc = "Shoots a high power laser when active"
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "Emitter"
 	anchored = 0
 	density = 1
@@ -575,7 +575,7 @@ However people seem to like it for some reason.
 
 		var/obj/beam/a_laser/A = new /obj/beam/a_laser( src.loc )
 		A.icon_state = "u_laser"
-		playsound(src.loc, 'Laser.ogg', 75, 1)
+		playsound(src.loc, 'sound/weapons/Laser.ogg', 75, 1)
 
 		if(prob(35))
 			var/datum/effects/system/spark_spread/s = new /datum/effects/system/spark_spread
@@ -615,14 +615,14 @@ However people seem to like it for some reason.
 
 		else if(state == 0)
 			state = 1
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You secure the external reinforcing bolts to the floor."
 			src.anchored = 1
 			return
 
 		else if(state == 1)
 			state = 0
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You undo the external reinforcing bolts."
 			src.anchored = 0
 			return
@@ -639,7 +639,7 @@ However people seem to like it for some reason.
 		if(state == 1)
 			W:eyecheck(user)
 			user << "You start to weld the emitter to the floor."
-			playsound(src.loc, 'Welder2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			sleep(20)
 
 			if ((user.loc == T && user.equipped() == W))
@@ -653,7 +653,7 @@ However people seem to like it for some reason.
 
 		if(state == 3)
 			user << "You start to cut the emitter free from the floor."
-			playsound(src.loc, 'Welder2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			sleep(20)
 			if ((user.loc == T && user.equipped() == W))
 				state = 1
@@ -692,7 +692,7 @@ However people seem to like it for some reason.
 /obj/machinery/power/collector_array
 	name = "Radiation Collector Array"
 	desc = "A device which uses Hawking Radiation and plasma to produce power."
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "ca"
 	anchored = 1
 	density = 1
@@ -715,12 +715,12 @@ However people seem to like it for some reason.
 	if(stat & (NOPOWER|BROKEN))
 		overlays = null
 	if(P)
-		overlays += image('singularity.dmi', "ptank")
+		overlays += image('icons/obj/singularity.dmi', "ptank")
 	else
 		overlays = null
-	overlays += image('singularity.dmi', "on")
+	overlays += image('icons/obj/singularity.dmi', "on")
 	if(P)
-		overlays += image('singularity.dmi', "ptank")
+		overlays += image('icons/obj/singularity.dmi', "ptank")
 
 /obj/machinery/power/collector_array/power_change()
 	updateicon()
@@ -794,7 +794,7 @@ However people seem to like it for some reason.
 /obj/machinery/power/collector_control
 	name = "Radiation Collector Control"
 	desc = "A device which uses Hawking Radiation and Plasma to produce power."
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "cu"
 	anchored = 1
 	density = 1
@@ -875,19 +875,19 @@ However people seem to like it for some reason.
 		overlays = null
 	if(src.active == 0)
 		return
-	overlays += image('singularity.dmi', "cu on")
+	overlays += image('icons/obj/singularity.dmi', "cu on")
 	if((P1)&&(CA1.active != 0))
-		overlays += image('singularity.dmi', "cu 1 on")
+		overlays += image('icons/obj/singularity.dmi', "cu 1 on")
 	if((P2)&&(CA2.active != 0))
-		overlays += image('singularity.dmi', "cu 2 on")
+		overlays += image('icons/obj/singularity.dmi', "cu 2 on")
 	if((P3)&&(CA3.active != 0))
-		overlays += image('singularity.dmi', "cu 3 on")
+		overlays += image('icons/obj/singularity.dmi', "cu 3 on")
 	if((!P1)||(!P2)||(!P3))
-		overlays += image('singularity.dmi', "cu n error")
+		overlays += image('icons/obj/singularity.dmi', "cu n error")
 	if(S1)
-		overlays += image('singularity.dmi', "cu sing")
+		overlays += image('icons/obj/singularity.dmi', "cu sing")
 		if(!S1.active)
-			overlays += image('singularity.dmi', "cu conterr")
+			overlays += image('icons/obj/singularity.dmi', "cu conterr")
 
 
 /obj/machinery/power/collector_control/power_change()
@@ -960,7 +960,7 @@ However people seem to like it for some reason.
 /obj/machinery/field_generator
 	name = "Field Generator"
 	desc = "Projects an energy field when active"
-	icon = 'singularity.dmi'
+	icon = 'icons/obj/singularity.dmi'
 	icon_state = "Field_Gen"
 	anchored = 0
 	density = 1
@@ -1111,14 +1111,14 @@ However people seem to like it for some reason.
 
 		else if(state == 0)
 			state = 1
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You secure the external reinforcing bolts to the floor."
 			src.anchored = 1
 			return
 
 		else if(state == 1)
 			state = 0
-			playsound(src.loc, 'Ratchet.ogg', 75, 1)
+			playsound(src.loc, 'sound/items/Ratchet.ogg', 75, 1)
 			user << "You undo the external reinforcing bolts."
 			src.anchored = 0
 			return
@@ -1134,7 +1134,7 @@ However people seem to like it for some reason.
 
 		if(state == 1)
 			user << "You start to weld the field generator to the floor."
-			playsound(src.loc, 'Welder2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			sleep(20)
 
 			if ((user.loc == T && user.equipped() == W))
@@ -1148,7 +1148,7 @@ However people seem to like it for some reason.
 
 		if(state == 3)
 			user << "You start to cut the field generator free from the floor."
-			playsound(src.loc, 'Welder2.ogg', 50, 1)
+			playsound(src.loc, 'sound/items/Welder2.ogg', 50, 1)
 			sleep(20)
 
 			if ((user.loc == T && user.equipped() == W))

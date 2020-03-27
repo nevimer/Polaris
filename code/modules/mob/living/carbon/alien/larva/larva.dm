@@ -351,7 +351,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 		src.invisibility = 0
 
 	if (src.alien_invis)
-		src.overlays += image("icon" = 'mob.dmi', "icon_state" = "shield", "layer" = MOB_LAYER)
+		src.overlays += image("icon" = 'icons/mob/mob.dmi', "icon_state" = "shield", "layer" = MOB_LAYER)
 
 	for (var/mob/M in viewers(1, src))
 		if ((M.client && M.machine == src))
@@ -437,7 +437,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 			if (src.paralysis >= 3) src.paralysis -= 3
 			if (src.stunned >= 3) src.stunned -= 3
 			if (src.weakened >= 3) src.weakened -= 3
-			playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\blue [] shakes [] trying to wake [] up!", M, src, src), 1)
 		else
@@ -469,7 +469,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 			G.affecting = src
 			src.grabbed_by += G
 			G.synch()
-			playsound(src.loc, 'thudswoosh.ogg', 50, 1, -1)
+			playsound(src.loc, 'sound/weapons/thudswoosh.ogg', 50, 1, -1)
 			for(var/mob/O in viewers(src, null))
 				O.show_message(text("\red [] has grabbed [] passively!", M, src), 1)
 		else
@@ -492,7 +492,7 @@ to clean it up, or just beat the shit out of it (which takes ages).
 
 					src.updatehealth()
 				else
-					playsound(src.loc, 'punchmiss.ogg', 25, 1, -1)
+					playsound(src.loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
 					for(var/mob/O in viewers(src, null))
 						O.show_message(text("\red <B>[] has attempted to punch []!</B>", M, src), 1)
 					return

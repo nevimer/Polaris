@@ -3,7 +3,7 @@ var/list/cultists = list()
 
 /obj/rune
 	anchored = 1
-	icon = 'magic.dmi'
+	icon = 'icons/obj/magic.dmi'
 	icon_state = "1"
 
 
@@ -95,7 +95,7 @@ var/list/cultists = list()
 					cultist_count += 1
 			if(cultist_count >= 6)
 				var/obj/machinery/the_singularity/S = new /obj/machinery/the_singularity/(src.loc)
-				S.icon = 'magic_terror.dmi'
+				S.icon = 'icons/obj/magic_terror.dmi'
 				S.name = "Tear in the Fabric of Reality"
 				S.desc = "Your mind begins to bubble and ooze as it tries to comprehend what it sees."
 				S.pixel_x = -89

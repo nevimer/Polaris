@@ -62,7 +62,7 @@
 
 /obj/bookcase
 	name = "bookcase"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "bookcase"
 	anchored = 1
 	density = 1
@@ -109,7 +109,7 @@
 
 /obj/item/weapon/book
 	name = "book"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state ="book"
 	throw_speed = 1
 	throw_range = 5
@@ -201,7 +201,7 @@
 
 /obj/item/weapon/barcodescanner
 	name = "barcode scanner"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state ="scanner"
 	throw_speed = 1
 	throw_range = 5
@@ -261,7 +261,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/librarypubliccomp
 	name = "visitor computer"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
 	anchored = 1
 	density = 1
@@ -352,7 +352,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/librarycomp
 	name = "Check-In/Out Computer"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "computer"
 	anchored = 1
 	density = 1
@@ -588,7 +588,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/libraryscanner
 	name = "scanner"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "bigscanner"
 	anchored = 1
 	density = 1
@@ -641,7 +641,7 @@ datum/borrowbook // Datum used to keep track of who has borrowed what when and f
 
 /obj/machinery/bookbinder
 	name = "Book Binder"
-	icon = 'library.dmi'
+	icon = 'icons/obj/library.dmi'
 	icon_state = "binder"
 	anchored = 1
 	density = 1

@@ -1,7 +1,7 @@
 /mob/living/carbon/human
 	name = "human"
 	voice_name = "human"
-	icon = 'mob.dmi'
+	icon = 'icons/mob/mob.dmi'
 	icon_state = "m-none"
 
 

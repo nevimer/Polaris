@@ -1,6 +1,6 @@
 /obj/window
 	name = "window"
-	icon = 'structures.dmi'
+	icon = 'icons/obj/structures.dmi'
 	icon_state = "window"
 	desc = "A window."
 	density = 1

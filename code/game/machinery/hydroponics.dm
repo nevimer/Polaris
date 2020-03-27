@@ -1,6 +1,6 @@
 /obj/machinery/hydroponics
 	name = "Hydroponics Tray"
-	icon = 'hydroponics.dmi'
+	icon = 'icons/obj/hydroponics.dmi'
 	icon_state = "hydrotray"
 	density = 1
 	anchored = 1
@@ -59,24 +59,24 @@ obj/machinery/hydroponics/proc/updateicon()
 	overlays = null
 	if(src.planted)
 		if(dead)
-			overlays += image('hydroponics.dmi', icon_state="[src.myseed.species]-dead")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="[src.myseed.species]-dead")
 		else if(src.harvest)
-			overlays += image('hydroponics.dmi', icon_state="[src.myseed.species]-harvest")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="[src.myseed.species]-harvest")
 		else if(src.age < src.myseed.maturation)
 			var/t_growthstate = ((src.age / src.myseed.maturation) * 6)
-			overlays += image('hydroponics.dmi', icon_state="[src.myseed.species]-grow[round(t_growthstate)]")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="[src.myseed.species]-grow[round(t_growthstate)]")
 			src.lastproduce = src.age //Cheating by putting this here, it means that it isn't instantly ready to harvest
 		else
-			overlays += image('hydroponics.dmi', icon_state="[src.myseed.species]-grow6")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="[src.myseed.species]-grow6")
 
 		if(src.waterlevel <= 10)
-			overlays += image('hydroponics.dmi', icon_state="over_lowwater")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="over_lowwater")
 		if(src.nutrilevel <= 2)
-			overlays += image('hydroponics.dmi', icon_state="over_lownutri")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="over_lownutri")
 		if(src.health <= (src.myseed.endurance / 2))
-			overlays += image('hydroponics.dmi', icon_state="over_lowhealth")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="over_lowhealth")
 		if(src.harvest)
-			overlays += image('hydroponics.dmi', icon_state="over_harvest")
+			overlays += image('icons/obj/hydroponics.dmi', icon_state="over_harvest")
 	return
 
 obj/machinery/hydroponics/proc/mutate() // Mutates the current seed
@@ -122,7 +122,7 @@ obj/machinery/hydroponics/attackby(var/obj/item/O as obj, var/mob/user as mob)
 				b_amount = 100 - src.waterlevel
 			O.reagents.remove_reagent("water", b_amount)
 			src.waterlevel += b_amount
-			playsound(src.loc, 'slosh.ogg', 25, 1)
+			playsound(src.loc, 'sound/effects/slosh.ogg', 25, 1)
 			user << "You fill the tray with [b_amount] units of water."
 		else if(src.waterlevel >= 100)
 			user << "\red The hydroponics tray is already full."
@@ -289,7 +289,7 @@ obj/plant
 
 obj/plant/vine
 	name = "space vine"
-	icon = 'hydroponics.dmi'
+	icon = 'icons/obj/hydroponics.dmi'
 	icon_state = "spacevine1"
 	anchored = 1
 	health = 20
@@ -320,7 +320,7 @@ obj/plant/vine
 
 			if(WT.welding)
 				damage = 15
-				playsound(src.loc, 'Welder.ogg', 100, 1)
+				playsound(src.loc, 'sound/items/Welder.ogg', 100, 1)
 
 		src.health -= damage
 

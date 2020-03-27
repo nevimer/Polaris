@@ -1,6 +1,6 @@
 /obj/item/seeds
 	name = "seed"
-	icon = 'hydroponics.dmi'
+	icon = 'icons/obj/hydroponics.dmi'
 	icon_state = "seed"
 	flags = FPRINT | TABLEPASS
 	var/mypath = "/obj/item/seeds"
