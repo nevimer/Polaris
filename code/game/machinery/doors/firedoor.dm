@@ -38,7 +38,7 @@
 			spawn( 0 )
 				src.operating = 1
 
-				animate("opening")
+				tanimate("opening")
 				sleep(15)
 				src.density = 0
 				update_icon()
@@ -50,7 +50,7 @@
 			spawn( 0 )
 				src.operating = 1
 
-				animate("closing")
+				tanimate("closing")
 				src.density = 1
 				sleep(15)
 				update_icon()
