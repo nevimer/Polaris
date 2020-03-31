@@ -65,7 +65,6 @@
 #include "code\defines\atom.dm"
 #include "code\defines\client.dm"
 #include "code\defines\global.dm"
-#include "code\defines\hub.dm"
 #include "code\defines\obj.dm"
 #include "code\defines\turf.dm"
 #include "code\defines\world.dm"

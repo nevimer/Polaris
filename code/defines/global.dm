@@ -43,7 +43,7 @@ var
 	master_mode = "traitor"//"extended"
 
 	datum/engine_eject/engine_eject_control = null
-	host = null
+
 	aliens_allowed = 1
 	ooc_allowed = 1
 	dooc_allowed = 1

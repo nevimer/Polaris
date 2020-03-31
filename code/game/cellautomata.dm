@@ -39,7 +39,7 @@
 				var/m_key = copytext(line, 1, pos)
 				var/a_lev = copytext(line, pos + 3, length(line) + 1)
 				admins[m_key] = a_lev
-				diary << ("ADMIN: [m_key] = [a_lev]")
+				diary << "ADMIN: [m_key] is [a_lev]"
 
 /world/proc/load_testers()
 	var/text = file2text("config/testers.txt")

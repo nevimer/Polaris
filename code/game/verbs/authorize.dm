@@ -42,13 +42,6 @@
 			src << "\blue[no_auth_motd]"
 		src.authenticating = 0
 
-/client/proc/beta_tester_auth()
-	set name = "Tester?"
-	/*if(istester(src))
-		src << "\blue <B>Key accepted as beta tester</B>"
-	else
-		src << "\red<B>Key not accepted as beta tester. You may only observe the rounds. Please join #goonstation on irc.synirc.net and ask to be a tester if you'd like to help!</B>"
-	*/
 /client/proc/goonauth()
 	set name = "Goon?"
 

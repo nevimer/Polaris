@@ -3,6 +3,8 @@
 
 /client/proc/update_admins(var/rank)
 
+	diary << "update_admins on [src] with rank]"
+
 	if(!src.holder)
 		src.holder = new /obj/admins(src)
 
@@ -477,6 +479,9 @@
 			src.verbs += /client/proc/beta_testers
 
 /client/proc/clear_admin_verbs()
+
+	diary << "clear_admin_verbs on [src]"
+
 	src.deadchat = 0
 	src.verbs -= /obj/admins/proc/togglegoonsay
 	src.verbs -= /client/proc/debug_variables

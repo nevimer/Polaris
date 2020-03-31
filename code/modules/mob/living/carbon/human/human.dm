@@ -1,4 +1,5 @@
 /mob/living/carbon/human/New()
+	. = ..()
 	var/datum/reagents/R = new/datum/reagents(1000)
 	reagents = R
 	R.my_atom = src
@@ -903,7 +904,7 @@
 				c:layer = initial(c:layer)
 		src.w_uniform.screen_loc = ui_iclothing
 		if (istype(src.w_uniform, /obj/item/clothing/under))
-			var/t1 = src.w_uniform.color
+			var/t1 = src.w_uniform.tcolor
 			if (!t1)
 				t1 = src.icon_state
 			if (src.mutations & 32)

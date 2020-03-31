@@ -1735,28 +1735,21 @@
 		alert(src,"You have been banned.\nReason : [isbanned]","Ban","Ok")
 		del(src)
 
-
-	if (((world.address == src.address || !(src.address)) && !(host)))
-		host = src.key
-		world.update_status()
-
-	..()
+	. = ..()
 
 	if (join_motd)
 		src << "<div class=\"motd\">[join_motd]</div>"
 
 	src.authorize()
 	src.goonauth()
-	src.beta_tester_auth()
 
 	src.update_world()
 
 //new admin bit - Nannek
-
-	if (admins.Find(src.ckey))
-		src.holder = new /obj/admins(src)
-		src.holder.rank = admins[src.ckey]
-		update_admins(admins[src.ckey])
+	diary << "[src.ckey] login, client/new"
+	if (admins[ckey(src.ckey)])
+		update_admins(admins[ckey(src.ckey)])
+		diary << "[src.ckey] assigned [src.holder.rank]"
 
 	if (ticker && ticker.mode && ticker.mode.name =="sandbox" && src.authenticated)
 		mob.CanBuild()
