@@ -54,8 +54,8 @@
 
 				if (!blind)
 					//stage = 4.5
-			//		if (src.blind.layer!=0)
-			//			src.blind.layer = 0
+					src.client.screen -= src.blind
+
 					src.sight |= SEE_TURFS
 					src.sight |= SEE_MOBS
 					src.sight |= SEE_OBJS
@@ -84,8 +84,8 @@
 
 					//stage = 6
 					src.blind.screen_loc = "1,1 to 15,15"
-					if (src.blind.layer!=18)
-						src.blind.layer = 18
+					src.client.screen += src.blind
+
 					src.sight = src.sight&~SEE_TURFS
 					src.sight = src.sight&~SEE_MOBS
 					src.sight = src.sight&~SEE_OBJS
