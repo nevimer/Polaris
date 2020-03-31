@@ -12,6 +12,7 @@
 	jobban_updatelegacybans()
 	goon_loadfile()
 	beta_tester_loadfile()
+	load_admins()
 	LoadBans()
 
 	spawn(30)
