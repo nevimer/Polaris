@@ -617,7 +617,7 @@
 		parent.component_click(src, params)
 
 /obj/screen/splash
-	screen_loc = "1,1"
+	screen_loc = ui_entire_screen
 	layer = LAYER_HUD_ABOVE
 	plane = PLANE_PLAYER_HUD_ABOVE
 	var/client/holder

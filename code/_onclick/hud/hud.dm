@@ -72,7 +72,7 @@ var/list/global_huds = list(
 	//darksight 'hanger' for attached icons
 	darksight = new /obj/screen()
 	darksight.icon = null
-	darksight.screen_loc = "1,1"
+	darksight.screen_loc = "CENTER-7,CENTER-7"
 	darksight.plane = PLANE_LIGHTING
 
 	//Marks the center of the screen, for things like ventcrawl
@@ -113,21 +113,21 @@ var/list/global_huds = list(
 	//welding mask overlay black/dither
 	darkMask = newlist(/obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen, /obj/screen)
 	O = darkMask[1]
-	O.screen_loc = "WEST+2,SOUTH+2 to WEST+4,NORTH-2"
+	O.screen_loc = "LEFT+2,SOUTH+2 to LEFT+4,TOP-2"
 	O = darkMask[2]
-	O.screen_loc = "WEST+4,SOUTH+2 to EAST-5,SOUTH+4"
+	O.screen_loc = "LEFT+4,SOUTH+2 to EAST-5,SOUTH+4"
 	O = darkMask[3]
-	O.screen_loc = "WEST+5,NORTH-4 to EAST-5,NORTH-2"
+	O.screen_loc = "LEFT+5,TOP-4 to EAST-5,TOP-2"
 	O = darkMask[4]
-	O.screen_loc = "EAST-4,SOUTH+2 to EAST-2,NORTH-2"
+	O.screen_loc = "EAST-4,SOUTH+2 to EAST-2,TOP-2"
 	O = darkMask[5]
-	O.screen_loc = "WEST,SOUTH to EAST,SOUTH+1"
+	O.screen_loc = "LEFT,SOUTH to EAST,SOUTH+1"
 	O = darkMask[6]
-	O.screen_loc = "WEST,SOUTH+2 to WEST+1,NORTH"
+	O.screen_loc = "LEFT,SOUTH+2 to LEFT+1,TOP"
 	O = darkMask[7]
-	O.screen_loc = "EAST-1,SOUTH+2 to EAST,NORTH"
+	O.screen_loc = "EAST-1,SOUTH+2 to EAST,TOP"
 	O = darkMask[8]
-	O.screen_loc = "WEST+2,NORTH-1 to EAST-2,NORTH"
+	O.screen_loc = "LEFT+2,TOP-1 to EAST-2,TOP"
 
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]

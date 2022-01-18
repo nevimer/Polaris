@@ -51,9 +51,9 @@
 	if(view_dist)
 		view_dist = view_dist
 	if(X > view_dist+1)
-		. = "EAST-[view_dist *2 + 1-X]"
+		. = "RIGHT-[view_dist *2 + 1-X]"
 	else if(X < view_dist +1)
-		. = "WEST+[X-1]"
+		. = "LEFT+[X-1]"
 	else
 		. = "CENTER"
 
@@ -62,12 +62,12 @@
 	if(view_dist)
 		view_dist = view_dist
 	//Find EAST/WEST implementations
-	if(findtext(X,"EAST-"))
+	if(findtext(X,"RIGHT-"))
 		var/num = text2num(copytext(X,6)) //Trim EAST-
 		if(!num)
 			num = 0
 		. = view_dist*2 + 1 - num
-	else if(findtext(X,"WEST+"))
+	else if(findtext(X,"LEFT+"))
 		var/num = text2num(copytext(X,6)) //Trim WEST+
 		if(!num)
 			num = 0
@@ -90,12 +90,12 @@
 	var/view_dist = world.view
 	if(view_dist)
 		view_dist = view_dist
-	if(findtext(Y,"NORTH-"))
+	if(findtext(Y,"TOP-"))
 		var/num = text2num(copytext(Y,7)) //Trim NORTH-
 		if(!num)
 			num = 0
 		. = view_dist*2 + 1 - num
-	else if(findtext(Y,"SOUTH+"))
+	else if(findtext(Y,"BOTTOM+"))
 		var/num = text2num(copytext(Y,7)) //Time SOUTH+
 		if(!num)
 			num = 0

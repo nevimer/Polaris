@@ -1,3 +1,5 @@
+#define ceil(x) (-round(-(x)))
+
 /mob
 	var/list/screens = list()
 
@@ -5,25 +7,40 @@
 	condition ? overlay_fullscreen(screen_name, screen_type, arg) : clear_fullscreen(screen_name)
 
 /mob/proc/overlay_fullscreen(category, type, severity)
-    var/obj/screen/fullscreen/screen = screens[category]
+	var/obj/screen/fullscreen/screen = screens[category]
 
-    if(screen)
-        if(screen.type != type)
-            clear_fullscreen(category, FALSE)
-            screen = null
-        else if(!severity || severity == screen.severity)
-            return null
+	if(screen)
+		if(screen.type != type)
+			clear_fullscreen(category, FALSE)
+			screen = null
+		else if(!severity || severity == screen.severity)
+			return null
 
-    if(!screen)
-        screen = new type()
+	if(!screen)
+		screen = new type()
 
-    screen.icon_state = "[initial(screen.icon_state)][severity]"
-    screen.severity = severity
+	screen.icon_state = "[initial(screen.icon_state)][severity]"
+	screen.severity = severity
 
-    screens[category] = screen
-    if(client && stat != DEAD)
-        client.screen += screen
-    return screen
+	screens[category] = screen
+	screen.transform = null
+	if(screen && client)
+		if(screen.screen_loc != ui_entire_screen)
+			if(max(client.last_view_x_dim, client.last_view_y_dim) > 7)
+				var/matrix/M = matrix()
+				M.Scale(ceil(client.last_view_x_dim/7),ceil(client.last_view_y_dim/7))
+				screen.transform = M
+		if(stat != DEAD || screen.allstate)
+			client.screen += screen
+	return screen
+
+/mob/proc/show_screen(var/screen, var/animated)
+	set waitfor = FALSE
+	animate(screen, alpha = 0, time = animated)
+	sleep(animated)
+	if(screen && client)
+		client.screen -= screen
+		qdel(screen)
 
 /mob/proc/clear_fullscreen(category, animated = 10)
 	var/obj/screen/fullscreen/screen = screens[category]
@@ -33,12 +50,7 @@
 	screens -= category
 
 	if(animated)
-		spawn(0)
-			animate(screen, alpha = 0, time = animated)
-			sleep(animated)
-			if(client)
-				client.screen -= screen
-			qdel(screen)
+		show_screen(screen, animated)
 	else
 		if(client)
 			client.screen -= screen
@@ -54,9 +66,16 @@
 			client.screen -= screens[category]
 
 /mob/proc/reload_fullscreen()
-	if(client && stat != DEAD) //dead mob do not see any of the fullscreen overlays that he has.
+	if(client)
+		var/largest_bound = max(client.last_view_x_dim, client.last_view_y_dim)
 		for(var/category in screens)
-			client.screen |= screens[category]
+			var/obj/screen/fullscreen/screen = screens[category]
+			screen.transform = null
+			if(screen.screen_loc != ui_entire_screen && largest_bound > 7)
+				var/matrix/M = matrix()
+				M.Scale(ceil(client.last_view_x_dim/7), ceil(client.last_view_y_dim/7))
+				screen.transform = M
+			client.screen |= screen
 
 /obj/screen/fullscreen
 	icon = 'icons/mob/screen_full.dmi'
@@ -66,6 +85,8 @@
 	plane = PLANE_FULLSCREEN
 	mouse_opacity = 0
 	var/severity = 0
+	var/allstate = 0 //shows if it should show up for dead people too
+
 
 /obj/screen/fullscreen/Destroy()
 	severity = 0
@@ -92,12 +113,12 @@
 
 /obj/screen/fullscreen/blurry
 	icon = 'icons/mob/screen1.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	screen_loc = "LEFT,BOTTOM to RIGHT,TOP"
 	icon_state = "blurry"
 
 /obj/screen/fullscreen/flash
 	icon = 'icons/mob/screen1.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	screen_loc = "LEFT,BOTTOM to RIGHT,TOP"
 	icon_state = "flash_static"
 
 /obj/screen/fullscreen/flash/noise
@@ -105,7 +126,7 @@
 
 /obj/screen/fullscreen/high
 	icon = 'icons/mob/screen1.dmi'
-	screen_loc = "WEST,SOUTH to EAST,NORTH"
+	screen_loc = "LEFT,BOTTOM to RIGHT,TOP"
 	icon_state = "druggy"
 
 /obj/screen/fullscreen/noise
